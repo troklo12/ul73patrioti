@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <style>
+    .left-aligned-text {
+            text-align: left; 
+        }
+    
+
+  <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оглавление</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 2px solid gray;
+      width: 100%;
+    }
+
+    .menu a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #000;
+      padding: 5px 10px;
+    }
+
+    .menu a:hover {
+      background-color: #ddd;
+    }
+
+    .content {
+      text-align: left;
+      margin-top: 50px; /* Увеличил отступ, чтобы контент не перекрывался навигационной панелью */
+    }
+
+    .section {
+      width: 80%;
+      text-align: left; /* Чтобы текст был выровнен слева */
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 20px;
+      padding-left: 20px;
+      font-size: 21px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+
+    .introduction, .forces, .combat, .airforce, .army, .navy, .maps, .results, .literature {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <a href="introduction.html" onclick="loadContent('introduction.html')">Введение</a>
+    <a href="forces.html" onclick="loadContent('forces.html')">Состав сторон</a>
+    <a href="combat.html" onclick="loadContent('combat.html')">Ход боевых действий</a>
+    <a href="airforce.html" onclick="loadContent('airforce.html')">13 воздушная армия</a>
+    <a href="army.html" onclick="loadContent('army.html')">8 армия</a>
+    <a href="navy.html" onclick="loadContent('navy.html')">Действия военно-морского флота</a>
+    <a href="maps.html" onclick="loadContent('maps.html')">Карты и фотографии</a>
+    <a href="results.html" onclick="loadContent('results.html')">Итоги операции</a>
+    <a href="literature.html" onclick="loadContent('literature.html')">Список литературы</a>
+  </div>
+
+  <div id="content"></div>
+
+  <script>
+    function loadContent(page) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('content').innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", page, true);
+      xhttp.send();
+    }
+  </script>
+
+<div class="content">
+  <div id="forces" class="section forces">
+    <h1>Советские войска</h1>
+    <ul class="tree" id="tree1">
+      <li>8 армия
+        <ul>
+          <li>8 стрелковый корпус
+            <ul>
+              <li>7 стрелковая дивизия </li>
+              <li>249 стрелковая дивизия</li>
+            </ul>
+          </li>
+          <li>109 стрелковый корпус
+            <ul>
+              <li>72 стрелковая дивизия </li>
+              <li>109 стрелковая дивизия </li>
+              <li>131 стрелковая дивизия </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>13 воздушная армия:  
+        <ul>
+          <li>1583 зенитный артиллерийский полк</li>
+          <li>1674 зенитный артиллерийский полк</li>
+          <li>276 бомбардировочная авиационная дивизия</li>
+          <li>277 штурмовая авиационная дивизия</li>
+          <li>281 штурмовая авиационная дивизия</li>
+          <li>275 истребительная авиационная дивизия</li>
+          <li>836 бомбардировочный авиационный полк</li>
+          <li>283 истребительный авиационный полк</li>
+          <li>13 разведывательный авиационный полк</li>
+          <li>203 корректировочный разведывательный авиационный полк</li>
+          <li>212 санитарный авиационный полк</li>
+          <li>199 отд. авиационный полк связи</li>
+          <li>87 ночная бомбардировочная авиационная эскадрилья</li>
+        </ul>
+      </li>
+    </ul>
+        <p>[6]</p>
+    <script>
+      // поместить все текстовые узлы в элемент <span>
+      // он занимает только то место, которое необходимо для текста
+      let tree1 = document.getElementById('tree1');
+      for (let li of tree1.querySelectorAll('li')) {
+        let span = document.createElement('span');
+        li.prepend(span);
+        span.append(span.nextSibling); // поместить текстовый узел внутрь элемента <span>
+      }
+      
+      //  ловим клики на первом дереве
+      tree1.onclick = function(event) {
+        if (event.target.tagName != 'SPAN') {
+          return;
+        }
+        
+        let childrenContainer = event.target.parentNode.querySelector('ul');
+        if (!childrenContainer) return; // нет детей
+        
+        childrenContainer.hidden = !childrenContainer.hidden;
+      }
+    </script>
+      <h1>Немецкие войска</h1>
+        <ul class="tree" id="tree">
+    <li>16 армия
+      <ul>
+        <li>II армейский корпус
+          <ul>
+            <li>563-я гренадерская дивизия</li>
+            <li>87-я пехотная дивизия</li>
+            <li>Боевая группа 207-й резервной дивизии</li>
+          </ul>
+        </li>
+        <li>X армейский корпус
+          <ul>
+            <li>30-я пехотная дивизия </li>
+            <li>14-я танковая дивизия </li>
+          </ul>
+        </li>
+        <li>III. СС армейский корпус
+          <ul>
+            <li>20-я ваффен-гренадерская дивизия</li>
+            <li>11-я добровольческая панцергренадерская дивизия СС</li>
+            <li>4-я бригада СС</li>
+            <li>5-я бригада СС</li>
+            <li>6-я бригада СС</li>
+          </ul>
+        </li>
+        <li>I армейский корпус
+          <ul>
+            <li>281-я резервная дивизия</li>
+            <li>263-я пехотная дивизия</li>
+            <li>290-я пехотная дивизия</li>
+            <li>101-я танковая бригада</li>
+            <li>215-я пехотная дивизия</li>
+            <li>205-я пехотная дивизия</li>
+          </ul>
+        </li>
+      </ul>
+  <script>
+    // поместить все текстовые узлы в элемент <span>
+    // он занимает только то место, которое необходимо для текста
+    for (let li of tree.querySelectorAll('li')) {
+      let span = document.createElement('span');
+      li.prepend(span);
+      span.append(span.nextSibling); // поместить текстовый узел внутрь элемента <span>
+    }
+
+    //  ловим клики на всём дереве
+    tree.onclick = function(event) {
+
+      if (event.target.tagName != 'SPAN') {
+        return;
+      }
+
+      let childrenContainer = event.target.parentNode.querySelector('ul');
+      if (!childrenContainer) return; // нет детей
+
+      childrenContainer.hidden = !childrenContainer.hidden;
+    }
+  </script>
+</body>
+</html>

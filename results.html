@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <style>
+    .left-aligned-text {
+            text-align: left; 
+        }
+    
+
+  <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оглавление</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 2px solid gray;
+      width: 100%;
+    }
+
+    .menu a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #000;
+      padding: 5px 10px;
+    }
+
+    .menu a:hover {
+      background-color: #ddd;
+    }
+
+    .content {
+      text-align: center;
+      margin-top: 50px; /* Увеличил отступ, чтобы контент не перекрывался навигационной панелью */
+    }
+
+    .section {
+      width: 80%;
+      text-align: center; /* Чтобы текст был выровнен слева */
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 20px;
+      padding-left: 20px;
+      font-size: 21px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+
+    .introduction, .forces, .combat, .airforce, .army, .navy, .maps, .results, .literature {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <a href="introduction.html" onclick="loadContent('introduction.html')">Введение</a>
+    <a href="forces.html" onclick="loadContent('forces.html')">Состав сторон</a>
+    <a href="combat.html" onclick="loadContent('combat.html')">Ход боевых действий</a>
+    <a href="airforce.html" onclick="loadContent('airforce.html')">13 воздушная армия</a>
+    <a href="army.html" onclick="loadContent('army.html')">8 армия</a>
+    <a href="navy.html" onclick="loadContent('navy.html')">Действия военно-морского флота</a>
+    <a href="maps.html" onclick="loadContent('maps.html')">Карты и фотографии</a>
+    <a href="results.html" onclick="loadContent('results.html')">Итоги операции</a>
+    <a href="literature.html" onclick="loadContent('literature.html')">Список литературы</a>
+  </div>
+
+  <div id="content"></div>
+
+  <script>
+    function loadContent(page) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('content').innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", page, true);
+      xhttp.send();
+    }
+  </script>
+
+  <div class="content">
+    <div id="results" class="section results">
+<h2>Итоги операции</h2>
+    <p>В результате операции были освобождены острова Даго, Эзель, Муху, Вормси-Сар. Освобождение Моонзундского архипелага имело важное значение: корабли Балтийского флота получили возможность контролировать Финский и Рижский заливы, в результате чего создавалась непосредственная угроза левому флангу немецких войск; Балтийский флот получал возможность развернуть активные действия на коммуникациях противника в средней и южной части Балтийского моря. Немецкие части потеряли до 7 тысяч человек убитыми и около 700 пленными, Балтийским флотом было потоплено или повреждено около ста немецких судов<p>
+</body>
+</html>

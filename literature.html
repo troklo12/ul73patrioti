@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <style>
+    .left-aligned-text {
+            text-align: left; 
+        }
+    
+
+  <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оглавление</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 2px solid gray;
+      width: 100%;
+    }
+
+    .menu a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #000;
+      padding: 5px 10px;
+    }
+
+    .menu a:hover {
+      background-color: #ddd;
+    }
+
+    .content {
+      text-align: center;
+      margin-top: 50px; /* Увеличил отступ, чтобы контент не перекрывался навигационной панелью */
+    }
+
+    .section {
+      width: 80%;
+      text-align: center; /* Чтобы текст был выровнен слева */
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 20px;
+      padding-left: 20px;
+      font-size: 21px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+
+    .introduction, .forces, .combat, .airforce, .army, .navy, .maps, .results, .literature {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <a href="introduction.html" onclick="loadContent('introduction.html')">Введение</a>
+    <a href="forces.html" onclick="loadContent('forces.html')">Состав сторон</a>
+    <a href="combat.html" onclick="loadContent('combat.html')">Ход боевых действий</a>
+    <a href="airforce.html" onclick="loadContent('airforce.html')">13 воздушная армия</a>
+    <a href="army.html" onclick="loadContent('army.html')">8 армия</a>
+    <a href="navy.html" onclick="loadContent('navy.html')">Действия военно-морского флота</a>
+    <a href="maps.html" onclick="loadContent('maps.html')">Карты и фотографии</a>
+    <a href="results.html" onclick="loadContent('results.html')">Итоги операции</a>
+    <a href="literature.html" onclick="loadContent('literature.html')">Список литературы</a>
+  </div>
+
+  <div id="content"></div>
+
+  <script>
+    function loadContent(page) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('content').innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", page, true);
+      xhttp.send();
+    }
+  </script>
+
+  <div class="content">
+    <div id="literature" class="section literature">
+<h2>Источники</h2>
+      <p>1.Моонзундская десантная операция (27.9 — 24.11.1944 г.) : Министерство обороны Российской Федерации <p>
+
+<p>2. Память народа <p>
+
+<p>3. Сражение за них шло месяц: Прибалтика: Бывший СССР. URL: https://lenta.ru/articles/2019/11/09/moodzun/<p>
+
+<p>4. 27 сентября – 24 ноября 1944 г. Моонзундская десантная операция. <p>
+
+<p>5. Мощанский И. Б. Наша Прибалтика. Освобождение прибалтийских республик СССР. — М.: Вече, 2010. — 400 с<p>
+
+<p>6. РККА:Боевой состав на 01.10.1944 — Указатель частей и соединений РККА 1941-1945 <p>
+
+<p>7. Великая Отечественная. День за днём // Морской сборник. - 1994. - № 11. – С.16-23. <p>
+
+<p>8. Петренко А. И. Прибалтийские дивизии Сталина - Москва : Вече, 2010. - 366 с.,<p>
+</body>
+</html>

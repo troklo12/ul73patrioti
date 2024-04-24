@@ -1,0 +1,26 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.full-screen-image {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.full-screen-image img.full-screen {
+  width: 70%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.normal-image {
+  width: 50%; /* Пример ширины обычного изображения */
+  margin: 0 auto; /* Центрировать изображение по горизонтали */
+}
+
+.normal-image img {
+  width: 100%;
+  height: auto; /* Поддержание соотношения сторон */
